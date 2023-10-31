@@ -1,3 +1,11 @@
+'''
+Extracts DLGE and LOCR files from the provided runtime directories.
+These are passed as environment variables when the program is ran.
+
+The files will be output into folders with their respective game versions
+at ../extracted
+'''
+
 import os, subprocess, shutil
 
 # Get runtime dirs from environment
