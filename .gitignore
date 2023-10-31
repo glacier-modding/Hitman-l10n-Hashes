@@ -1,1 +1,3 @@
 extracted/
+scripts/*
+!scripts/*.py
