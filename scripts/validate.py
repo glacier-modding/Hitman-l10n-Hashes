@@ -11,14 +11,14 @@ calculator = Calculator(Crc32.CRC32)
 
 # Returns number of LINE collisions
 def checkCollisions():
-    hashes = []
+    hashes = {}
     for path in glob.glob("../extracted/H1/**/*.LOCR.JSON", recursive=True):
         j = json.load(open(path, "r", encoding="utf-8"))
-        for hash in j["languages"]["xx"].keys():
-            if hash in hashes:
-                print(f"Collision found! \"{path}\" - {hash}")
+        for hash, value in j["languages"]["en"].items():
+            if hash in hashes and hashes[hash] != value:
+                print(f"Collision found! \"{path}\" - {hash} - {value} | {hashes[hash]}")
             else:
-                hashes.append(hash)
+                hashes[hash] = value
 
 
 def checkHashes():
