@@ -54,9 +54,13 @@ if len(sys.argv) != 2:
     exit(1)
 
 if sys.argv[1] == "1":
+    print("Checking for collisions...")
     checkCollisions()
+    print("Done!")
 elif sys.argv[1] == "2":
+    print("Validating hashes...")
     checkHashes()
+    print("Done!")
 else:
     print("Invalid mode!")
     print("Valid modes: 1 and 2")
