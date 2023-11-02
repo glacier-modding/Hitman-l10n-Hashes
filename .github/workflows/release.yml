@@ -25,8 +25,9 @@ jobs:
 
       - name: Get New Tag
         id: newtag
+        env:
+          curVer: ${{ steps.previoustag.outputs.tag }}
         run: |
-          curVer = ${{ steps.previoustag.outputs.tag }}
           echo "tag=v$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
           echo "numTag=$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
 
