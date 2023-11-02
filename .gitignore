@@ -2,3 +2,5 @@ extracted/
 scripts/*
 !scripts/*.py
 !scripts/requirements.txt
+hash-list.hmla
+version.json
