@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches: ["master"]
+    paths: ["cases.json", "lines.json", "soundtags.json", "scripts/package.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Previous Tag
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+        with:
+          fallback: v1
+
+      - name: Get New Tag
+        id: newtag
+        run: |
+          curVer = ${{ steps.previoustag.outputs.tag }}
+          echo "tag=v$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
+          echo "numTag=$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
+
+      - name: Create Version JSON
+        run: "echo \"{\"version\":${{ steps.newtag.outputs.numTag }}}\" > version.json"
+
+      - name: Install Dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Package Hash Lists
+        run: python scripts/package.py ${{ steps.newtag.outputs.numTag }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: false
+          tag_name: ${{ steps.newtag.outputs.tag }}
+          name: ${{ steps.newtag.outputs.tag }}
+          files: |
+            hash_list.hmla
+            version.json
+
+      - name: Update README
+        run: python scripts/statistics.py
+
+      - name: Update Statistics
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update statistics"
+          file_pattern: "README.md"
