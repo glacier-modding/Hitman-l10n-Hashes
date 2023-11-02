@@ -19,14 +19,12 @@ jobs:
 
       - name: Get Previous Tag
         id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@v1
-        with:
-          fallback: v0
+        uses: younited/get-previous-tag-action@v1.1.0
 
       - name: Get New Tag
         id: newtag
         env:
-          curVer: ${{ steps.previoustag.outputs.tag }}
+          curVer: ${{ steps.previoustag.outputs.previous-tag }}
         run: |
           echo "tag=v$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
           echo "numTag=$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
