@@ -21,7 +21,7 @@ jobs:
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@v1
         with:
-          fallback: v1
+          fallback: v0
 
       - name: Get New Tag
         id: newtag
@@ -54,7 +54,9 @@ jobs:
         run: python scripts/statistics.py
 
       - name: Update Statistics
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: EndBug/add-and-commit@v9
         with:
-          commit_message: "chore: update statistics"
-          file_pattern: "README.md"
+          add: |
+            README.md
+          default_author: github_actions
+          message: "chore: update statistics"
