@@ -4,9 +4,9 @@ Generates statistics for the various hash lists and places them into the README.
 
 import json
 
-SOUNDTAGS = json.load(open("../soundtags.json", "r"))
-CASES = json.load(open("../cases.json", "r"))
-LINES = json.load(open("../lines.json", "r"))
+SOUNDTAGS = json.load(open("soundtags.json", "r"))
+CASES = json.load(open("cases.json", "r"))
+LINES = json.load(open("lines.json", "r"))
 
 # From glacier-modding/Hitman-Hashes
 def generate_badge_url(label, value, colour):
@@ -24,7 +24,7 @@ def total_completion_colour(percentage):
 
 # From glacier-modding/Hitman-Hashes
 def add_to_readme(start_marker, end_marker, addition_str):
-    with open("../README.md", "r") as f:
+    with open("README.md", "r") as f:
         content = f.read()
 
     start_index = content.find(start_marker)
@@ -35,7 +35,7 @@ def add_to_readme(start_marker, end_marker, addition_str):
         after_section = content[end_index:]
         content = before_section + "\n" + addition_str + after_section
 
-    with open("../README.md", "w", newline="\n") as f:
+    with open("README.md", "w", newline="\n") as f:
         f.write(content)
 
 def generate_badge(obj, name):

@@ -1,14 +1,14 @@
 '''
-Finds hashes from DLGE and LOCR files located in ../extracted
+Finds hashes from DLGE and LOCR files located in "extracted"
 It will automatically add them to the pre-existing JSON files found
 at the root of the repo.
 '''
 
 import glob, json
 
-SOUNDTAGS = json.load(open("../soundtags.json", "r"))
-CASES = json.load(open("../cases.json", "r"))
-LINES = json.load(open("../lines.json", "r"))
+SOUNDTAGS = json.load(open("soundtags.json", "r"))
+CASES = json.load(open("cases.json", "r"))
+LINES = json.load(open("lines.json", "r"))
 
 # DLGE
 NEW_SOUNDTAGS = []
@@ -46,7 +46,7 @@ def processContainer(container):
 
 
 print("Processing DLGE...")
-for path in glob.glob("../extracted/**/*.DLGE.JSON", recursive=True):
+for path in glob.glob("extracted/**/*.DLGE.JSON", recursive=True):
     j = json.load(open(path, "r", encoding="utf-8"))
     processContainer(j["rootContainer"])
 
@@ -62,7 +62,7 @@ for case in NEW_CASES:
 NEW_LINES = []
 
 print("Processing LOCR...")
-for path in glob.glob("../extracted/**/*.LOCR.JSON", recursive=True):
+for path in glob.glob("extracted/**/*.LOCR.JSON", recursive=True):
     j = json.load(open(path, "r", encoding="utf-8"))
     for lang, entries in j["languages"].items():
         for hash in entries.keys():
@@ -73,6 +73,6 @@ print(f"Found {len(NEW_LINES):,} new line hashes.")
 for line in NEW_LINES:
     LINES[line] = None
 
-json.dump(SOUNDTAGS, open("../soundtags.json", "w"), sort_keys=True, indent=4)
-json.dump(CASES, open("../cases.json", "w"), sort_keys=True, indent=4)
-json.dump(LINES, open("../lines.json", "w"), sort_keys=True, indent=4)
+json.dump(SOUNDTAGS, open("soundtags.json", "w"), sort_keys=True, indent=4)
+json.dump(CASES, open("cases.json", "w"), sort_keys=True, indent=4)
+json.dump(LINES, open("lines.json", "w"), sort_keys=True, indent=4)

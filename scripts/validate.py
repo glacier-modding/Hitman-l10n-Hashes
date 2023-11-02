@@ -12,7 +12,7 @@ calculator = Calculator(Crc32.CRC32)
 # Returns number of LINE collisions
 def checkCollisions():
     hashes = {}
-    for path in glob.glob("../extracted/H1/**/*.LOCR.JSON", recursive=True):
+    for path in glob.glob("extracted/H1/**/*.LOCR.JSON", recursive=True):
         j = json.load(open(path, "r", encoding="utf-8"))
         for hash, value in j["languages"]["en"].items():
             if hash in hashes and hashes[hash] != value:
@@ -22,9 +22,9 @@ def checkCollisions():
 
 
 def checkHashes():
-    SOUNDTAGS = json.load(open("../soundtags.json", "r"))
-    CASES = json.load(open("../cases.json", "r"))
-    LINES = json.load(open("../lines.json", "r"))
+    SOUNDTAGS = json.load(open("soundtags.json", "r"))
+    CASES = json.load(open("cases.json", "r"))
+    LINES = json.load(open("lines.json", "r"))
 
     for hash, value in SOUNDTAGS.items():
         if value == None:

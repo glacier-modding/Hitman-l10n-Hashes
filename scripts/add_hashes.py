@@ -51,5 +51,5 @@ if type not in ["cases", "lines", "soundtags"]:
     print("Valid types: cases, lines, and soundtags")
     exit(1)
 
-found = addValuesToFile(f"../{type}.json", newValues)
+found = addValuesToFile(f"{type}.json", newValues)
 print(f"{found} new hashes added!")

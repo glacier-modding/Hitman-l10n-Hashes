@@ -3,7 +3,7 @@ Extracts DLGE and LOCR files from the provided runtime directories.
 These are passed as environment variables when the program is ran.
 
 The files will be output into folders with their respective game versions
-at ../extracted
+at "extracted"
 '''
 
 import os, subprocess, shutil
@@ -31,7 +31,7 @@ def extract_files(version, runtime):
     global extracted
     extracted = True
 
-    output_path = f"../extracted/H{version}"
+    output_path = f"extracted/H{version}"
 
     print(f"Extracting LOCR for H{version}...")
     call_rpkg("locr", runtime, output_path, VERSIONS[version - 1])
