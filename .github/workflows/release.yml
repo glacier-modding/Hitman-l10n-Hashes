@@ -32,7 +32,7 @@ jobs:
           echo "numTag=$((${curVer#*v} + 1))" >> $GITHUB_OUTPUT
 
       - name: Create Version JSON
-        run: "echo \"{\"version\":${{ steps.newtag.outputs.numTag }}}\" > version.json"
+        run: echo "{\"version\":${{ steps.newtag.outputs.numTag }}}" > version.json
 
       - name: Install Dependencies
         run: pip install -r scripts/requirements.txt
