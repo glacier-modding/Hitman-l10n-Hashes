@@ -24,9 +24,9 @@ def addValuesToFile(path, values):
 
     count = 0
     for value in values:
-        hash = f"{calculator.checksum(str.encode(value)):08X}"
+        hash = f"{calculator.checksum(str.encode(value.upper())):08X}"
         if hash in j and j[hash] == None:
-            j[hash] = value
+            j[hash] = value.upper()
             count += 1
 
     json.dump(j, open(path, "w"), sort_keys=True, indent=4)
