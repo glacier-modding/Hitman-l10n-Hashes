@@ -10,4 +10,4 @@ This repository contains various hashes relating to l10n formats in the World of
 - LINE hashes
 - DLGE soundtag and switch hashes
 
-They will be packaged up into a binary file (that is compressed), more in-depth information can be found [here](https://tonytools.win/libraries/hmlanguages#hash-list).
+They will be packaged up into a binary file, more in-depth information can be found [here](https://tonytools.win/libraries/hmlanguages#hash-list).
