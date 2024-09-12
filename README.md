@@ -3,7 +3,7 @@
 <!-- BADGES_START -->
 ![Soundtag Completion - 100.00%](https://img.shields.io/badge/Soundtag-100.00%25-green.svg)
 ![Case Completion - 99.64%](https://img.shields.io/badge/Case-99.64%25-green.svg)
-![LINE Completion - 67.61%](https://img.shields.io/badge/LINE-67.61%25-red.svg)
+![LINE Completion - 67.47%](https://img.shields.io/badge/LINE-67.47%25-red.svg)
 <!-- BADGES_END -->
 
 This repository contains various hashes relating to l10n formats in the World of Assassination Trilogy and Absolution. These hashes include:
