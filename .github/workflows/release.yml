@@ -4,6 +4,7 @@ on:
   push:
     branches: ["master"]
     paths: ["cases.json", "lines.json", "soundtags.json", "scripts/package.py"]
+  workflow_dispatch:
 
 permissions:
   contents: write
