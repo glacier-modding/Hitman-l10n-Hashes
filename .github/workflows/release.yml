@@ -12,7 +12,7 @@ permissions:
 jobs:
   release:
     name: Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -36,7 +36,7 @@ jobs:
         run: echo "{\"version\":${{ steps.newtag.outputs.numTag }}}" > version.json
 
       - name: Install Dependencies
-        run: pip install -r scripts/requirements.txt --break-system-packages
+        run: pip install -r scripts/requirements.txt
 
       - name: Package Hash Lists
         run: python scripts/package.py ${{ steps.newtag.outputs.numTag }}
