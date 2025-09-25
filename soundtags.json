@@ -41,6 +41,7 @@
     "B1BC87E2": "In-world_AI_Important",
     "B5BC8612": "In-world_Radioprocessed",
     "B7199547": "In-world_AI_VeryLow",
+    "BA2DCD7F": "In-world_AI_Normal_Loud",
     "BBD4AD8E": "In-world_Speaker_LoFi_Medium",
     "BCA712DB": "In-world_Maincharacter",
     "BD6E5A21": "In-world_PA_Processed_Volumetric",
@@ -48,6 +49,7 @@
     "D533629C": "In-world_Speaker_LoFi_Small",
     "DE6CF204": "In-world_AI_CloseUp",
     "E337868C": "In-world_Mission_Dream",
+    "E5BF6EDD": "In-world_AI_Important_Loud",
     "F3F67FB6": "Voiceover_Telephoneprocessed",
     "F91DA131": "In-world_Speaker_LoFi_Large"
 }
