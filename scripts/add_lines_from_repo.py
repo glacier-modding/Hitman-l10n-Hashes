@@ -2,7 +2,7 @@
 Adds lines from the REPO.
 
 Usage:
-py add_lines_From_repo.py <path to repo file>
+py add_lines_from_repo.py <path to repo file>
 '''
 
 from crc import Calculator, Crc32
@@ -12,7 +12,7 @@ calculator = Calculator(Crc32.CRC32)
 
 if len(sys.argv) != 2:
     print("Invalid arguments!")
-    print("Usage: py add_lines_From_repo.py <path to repo file>")
+    print("Usage: py add_lines_from_repo.py <path to repo file>")
     exit(1)
 
 if not os.path.exists(sys.argv[1]):
