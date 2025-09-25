@@ -19,14 +19,14 @@ import json, sys, os
 calculator = Calculator(Crc32.CRC32)
 
 # Adds values to the file specified, returns how many were added.
-def addValuesToFile(path, values):
+def addValuesToFile(path, values, upper = False):
     j = json.load(open(path, "r"))
 
     count = 0
     for value in values:
-        hash = f"{calculator.checksum(str.encode(value.upper())):08X}"
+        hash = f"{calculator.checksum(str.encode(value.upper() if upper else value)):08X}"
         if hash in j and j[hash] == None:
-            j[hash] = value.upper()
+            j[hash] = value.upper() if upper else value
             count += 1
 
     json.dump(j, open(path, "w"), sort_keys=True, indent=4)
@@ -51,5 +51,5 @@ if type not in ["cases", "lines", "soundtags"]:
     print("Valid types: cases, lines, and soundtags")
     exit(1)
 
-found = addValuesToFile(f"{type}.json", newValues)
+found = addValuesToFile(f"{type}.json", newValues, type == "lines")
 print(f"{found} new hashes added!")

@@ -46,7 +46,7 @@ def processContainer(container):
 
 
 print("Processing DLGE...")
-for path in glob.glob("extracted/**/*.DLGE.JSON", recursive=True):
+for path in glob.glob("extracted/**/*.dlge.json", recursive=True):
     j = json.load(open(path, "r", encoding="utf-8"))
     processContainer(j["rootContainer"])
 
@@ -62,7 +62,7 @@ for case in NEW_CASES:
 NEW_LINES = []
 
 print("Processing LOCR...")
-for path in glob.glob("extracted/**/*.LOCR.JSON", recursive=True):
+for path in glob.glob("extracted/**/*.locr.json", recursive=True):
     j = json.load(open(path, "r", encoding="utf-8"))
     for lang, entries in j["languages"].items():
         for hash in entries.keys():
